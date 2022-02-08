@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 // Firebase services + enviorment module
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 import { AuthService } from "./shared/services/auth.service";
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    RouterModule.forRoot([])
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -21,7 +21,8 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -30,3 +31,5 @@
     "strictTemplates": true
   }
 }
+
+// skipLibCheck: This option is to skip type checking of declaration files.

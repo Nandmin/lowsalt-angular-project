@@ -4,19 +4,18 @@ import { User } from "./user";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from "@angular/router";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any; // Save logged in user data
-  localStorage: any;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,  
     public ngZone: NgZone, // NgZone service to remove outside scope warning
-    // public localStorage: Storage
   ) {    
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -57,10 +56,10 @@ export class AuthService {
   }
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
-    return this.afAuth.currentUser.sendEmailVerification()
-    .then(() => {
-      this.router.navigate(['verify-email-address']);
-    })
+    // return this.afAuth.currentUser.sendEmailVerification()
+    // .then(() => {
+    //   this.router.navigate(['verify-email-address']);
+    // })
   }
   // Reset Forggot password
   ForgotPassword(passwordResetEmail: any) {
@@ -78,7 +77,7 @@ export class AuthService {
   }
   // Sign in with Google
   GoogleAuth(): any {
-    return this.AuthLogin(new this.afAuth.GoogleAuthProvider());
+    // return this.AuthLogin(new this.afAuth.GoogleAuthProvider());
   }
   // Auth logic to run auth providers
   AuthLogin(provider: any) {

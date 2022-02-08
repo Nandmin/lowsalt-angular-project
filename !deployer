@@ -3,3 +3,6 @@ firebase login
 firebase init
 
 firebase deploy
+
+No warning message during compile:
+ng config -g cli.warnings.versionMismatch false
